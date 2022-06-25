@@ -3,7 +3,10 @@ var BoatDancer = function(top, left, time) {
   console.log(this.left);
   this.left = left;
   this.top = top;
-  this.time= time;
+  this.time = time;
+  console.log("HTML:");
+  console.log(this.$node.innerHTML);
+
 };
 BoatDancer.prototype = Object.create(BlinkyDancer.prototype);
 BoatDancer.prototype.constructor = BoatDancer;
@@ -29,7 +32,7 @@ BoatDancer.prototype.step = function() {
   this.$node.animate({
     top: this.top,
     left: this.left
-  })
+  });
   // #e19219
   //   const randomColor = '#'+ Math.floor(Math.random()*16777215).toString(16);
   //document.body.style.backgroundColor = "#" + randomColor;

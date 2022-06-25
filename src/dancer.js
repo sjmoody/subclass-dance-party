@@ -2,7 +2,7 @@
 var Dancer = function(top, left, timeBetweenSteps) {
   this.$node = $('<span class="dancer"></span>');
   this._timeBetweenSteps = timeBetweenSteps;
-  console.log("in Dancer timeBetween steps is " + timeBetweenSteps);
+  console.log("in Dancer time Between steps is " + timeBetweenSteps);
 
   this.step();
   this.setPosition(top, left, timeBetweenSteps);
