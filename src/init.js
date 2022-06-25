@@ -1,7 +1,14 @@
 $(document).ready(function() {
   window.dancers = [];
+  window.lineup = false;
+
+  //on mouseover on dancer class do something
+  $('.dancer').on('mouseover', function(event) {
+    console.log("event");
+  });
 
   $('.addDancerButton').on('click', function(event) {
+    window.lineup = false;
     /* This function sets up the click handlers for the create-dancer
      * buttons on dancefloor.html. You should only need to make one small change to it.
      * As long as the "data-dancer-maker-function-name" attribute of a
@@ -17,6 +24,7 @@ $(document).ready(function() {
      */
     var dancerMakerFunctionName = $(this).data('dancer-maker-function-name');
 
+
     // get the maker function for the kind of dancer we're supposed to make
     var dancerMakerFunction = window[dancerMakerFunctionName];
 
@@ -26,10 +34,21 @@ $(document).ready(function() {
     var dancer = new dancerMakerFunction(
       $("body").height() * Math.random(),
       $("body").width() * Math.random(),
-      Math.random() * 1000
+      Math.random() * 50
     );
     $('body').append(dancer.$node);
-    dancers.push(dancers);
+    dancers.push(dancer);
   });
+
+  $('.LineUpButton').on('click', function(event) {
+    window.lineup = true;
+    for (var i in dancers) {
+
+      dancers[i].lineUp();
+    }
+
+  });
+
+
 });
 
